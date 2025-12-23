@@ -1,0 +1,429 @@
+/* --- Variables & Reset --- */
+:root {
+    --primary-color: #6c63ff; /* Modern Violet */
+    --primary-dark: #483d8b;  /* Darker shade for hovers */
+    --secondary-color: #3f3d56; /* Dark Grey/Blue */
+    --accent-color: #00d2d3; /* Teal Accent */
+    --bg-light: #f9fbfd;
+    --text-dark: #2d3436;
+    --text-light: #636e72;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Poppins', sans-serif;
+    color: var(--secondary-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Nav Link Hover Effect (Underline) */
+.nav-links a {
+    position: relative;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.cta-btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+    border-radius: 25px;
+    transition: var(--transition);
+}
+
+.cta-btn:hover {
+    background-color: #5750d6;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+}
+
+.cta-btn::after {
+    display: none; /* Removes underline from button */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f9fbfd 0%, #eef2f5 100%);
+    overflow: hidden;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.hero-text h3 {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.hero-text p {
+    margin-bottom: 30px;
+    max-width: 500px;
+    color: var(--text-light);
+}
+
+.profile-pic {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid var(--white);
+    box-shadow: var(--shadow);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- Buttons & Animations --- */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    position: relative;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Primary Button (Sliding Door Effect) */
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.primary-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-dark);
+    z-index: -2;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.primary-btn:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.4);
+}
+
+/* Secondary Button (Fill Effect) */
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+}
+
+/* Submit Button (Pulse Animation) */
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px;
+    font-size: 1.1rem;
+    animation: pulse-purple 2s infinite;
+}
+
+.submit-btn:hover {
+    animation: none;
+    background-color: var(--primary-dark);
+    transform: scale(1.02);
+}
+
+@keyframes pulse-purple {
+    0% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(108, 99, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(108, 99, 255, 0); }
+}
+
+/* --- Skills Section --- */
+.skills-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: 12px;
+    width: 200px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid #eee;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow);
+    background: var(--white);
+    border-color: transparent;
+}
+
+.skill-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+}
+
+.contact-sub {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+    background: transparent;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+}
+
+.form-group label {
+    position: absolute;
+    left: 12px;
+    top: 15px;
+    color: #999;
+    pointer-events: none;
+    transition: var(--transition);
+    background-color: var(--white);
+    padding: 0 5px;
+}
+
+/* Floating Label Animation */
+.form-group input:focus ~ label,
+.form-group input:not(:placeholder-shown) ~ label,
+.form-group textarea:focus ~ label,
+.form-group textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 0;
+}
+
+.social-links {
+    margin: 20px 0;
+}
+
+.social-links a {
+    color: #b2bec3;
+    margin: 0 10px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--white);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .profile-pic {
+        width: 250px;
+        height: 250px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .nav-links {
+        display: none; /* In a real project, you would add a hamburger menu here */
+    }
+}

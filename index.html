@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayushi Rani | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">&lt;Ayushi /&gt;</div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact" class="cta-btn">Contact Me</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="hero-section">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1>Hi, I'm <span class="highlight">Ayushi Rani</span></h1>
+            <h3>Web Developer & Designer</h3>
+            <p>
+              I build accessible, pixel-perfect, and performant web experiences.
+              Passionate about solving complex problems with elegant code.
+            </p>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn primary-btn">Get in Touch</a>
+              <a href="#skills" class="btn secondary-btn">View Skills</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="./images/WhatsApp Image 2025-02-17 at 16.34.57_e673e66a.jpg"
+              alt="Ayushi Rani"
+              class="profile-pic"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="skills-section">
+        <div class="container">
+          <h2 class="section-title">Technical Expertise</h2>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="icon">🌐</div>
+              <h3>HTML5</h3>
+              <p>Semantic markup & Accessibility</p>
+            </div>
+            <div class="skill-card">
+              <div class="icon">🎨</div>
+              <h3>CSS3</h3>
+              <p>Flexbox, Grid, & Animations</p>
+            </div>
+            <div class="skill-card">
+              <div class="icon">⚡</div>
+              <h3>JavaScript</h3>
+              <p>ES6+, DOM Manipulation</p>
+            </div>
+            <div class="skill-card">
+              <div class="icon">⚛️</div>
+              <h3>React</h3>
+              <p>Components & Hooks</p>
+            </div>
+            <div class="skill-card">
+              <div class="icon">🐙</div>
+              <h3>Git & GitHub</h3>
+              <p>Version Control</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="contact-sub">
+            Have a project in mind? Fill out the form below.
+          </p>
+
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder=" "
+              />
+              <label for="name">Your Name</label>
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder=" "
+              />
+              <label for="email">Your Email</label>
+            </div>
+
+            <div class="form-group">
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder=" "
+              ></textarea>
+              <label for="message">Your Message</label>
+            </div>
+
+            <button type="submit" class="btn submit-btn">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Designed & Built by <strong>Ayushi Rani</strong></p>
+      <div class="social-links">
+        <a href="#">LinkedIn</a> | <a href="#">GitHub</a> |
+        <a href="#">Twitter</a>
+      </div>
+      <p class="copyright">&copy; 2025 All rights reserved.</p>
+    </footer>
+  </body>
+</html>
